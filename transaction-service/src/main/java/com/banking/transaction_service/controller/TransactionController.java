@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/transactions")
 @Slf4j
@@ -30,7 +32,7 @@ public class TransactionController {
     }
 
     @GetMapping("/account/{accountNumber}")
-    public ResponseEntity<TransactionResponse> getTransactionHistory(@PathVariable String accountNumber){
+    public ResponseEntity<List<TransactionResponse>> getTransactionHistory(@PathVariable String accountNumber){
         return ResponseEntity.ok(transactionService.getTransactionHistory(accountNumber));
     }
 
