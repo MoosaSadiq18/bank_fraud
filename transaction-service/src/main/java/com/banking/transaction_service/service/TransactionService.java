@@ -58,6 +58,7 @@ public class TransactionService {
                 savedTransaction.getDescription()
         );
 
+        //this event will be consumed by the fraud detection service
         kafkaTemplate.send(TRANSACTION_INITIATED_TOPIC, savedTransaction.getId(), event);
         log.info("TransactionInitiatedEvent published: {}", savedTransaction.getId());
         return mapToResponse(savedTransaction);

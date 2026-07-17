@@ -23,7 +23,7 @@ public class TransactionController {
     @PostMapping("/transfer")
     public ResponseEntity<TransactionResponse> transfer(@Valid @RequestBody TransactionRequest request){
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(transactionService.transfer(request);
+                .body(transactionService.transfer(request));
     }
 
     @GetMapping("/{transactionId}")
