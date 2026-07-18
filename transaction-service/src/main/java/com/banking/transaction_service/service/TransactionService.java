@@ -127,7 +127,7 @@ public class TransactionService {
         Map<String,Object> completionEvent = new HashMap<>();
         completionEvent.put("transactionId",transaction.getId());
         completionEvent.put("senderAccountNumber",transaction.getSenderAccountNumber());
-        completionEvent.put("ReceiverAccountNumber",transaction.getReceiverAccountNumber());
+        completionEvent.put("receiverAccountNumber",transaction.getReceiverAccountNumber());
         completionEvent.put("description",transaction.getDescription());
         completionEvent.put("amount",transaction.getAmount());
 
@@ -144,7 +144,7 @@ public class TransactionService {
 
         Map<String,Object> refundEvent = new HashMap<>();
         refundEvent.put("transactionId",transaction.getId());
-        refundEvent.put("accountNumber",transaction.getSenderAccountNumber());
+        refundEvent.put("senderAccountNumber",transaction.getSenderAccountNumber());
         refundEvent.put("reason",reason);
         refundEvent.put("amount",transaction.getAmount());
 
@@ -158,14 +158,9 @@ public class TransactionService {
         log.warn("Blocking account: {} and Refunding back: {} amount: {}",
                 transaction.getSenderAccountNumber(),transaction.getId(),transaction.getAmount());
 
-        /*accountServiceClient.creditBalance(transaction.getSenderAccountNumber(),transaction.getAmount());
-        transaction.setTransactionStatus(TransactionStatus.FLAGGED);
-        transaction.setFailureReason(reason);
-        accountServiceClient.blockAccount(transaction.getSenderAccountNumber());*/
-
         Map<String,Object> fraudEvent = new HashMap<>();
         fraudEvent.put("transactionId",transaction.getId());
-        fraudEvent.put("accountNumber",transaction.getSenderAccountNumber());
+        fraudEvent.put("senderAccountNumber",transaction.getSenderAccountNumber());
         fraudEvent.put("reason",reason);
 
         kafkaTemplate.send(FRAUD_DETECTED_TOPIC,transaction.getId(),fraudEvent);

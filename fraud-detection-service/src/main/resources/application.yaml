@@ -23,7 +23,7 @@ spring:
             value:
               default:
                 type: java.util.HashMap
-    properties:
+    producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.sprinframework.kafka.support.serializer.JsonSerializer
 
