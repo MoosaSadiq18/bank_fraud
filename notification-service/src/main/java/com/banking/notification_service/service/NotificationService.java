@@ -28,7 +28,7 @@ public class NotificationService {
             sendAlert(accountNumber,
                     "Transaction verification required",
                     String.format(
-                            "Suspicious acitivity detected on your account. " +
+                            "Suspicious activity detected on your account. " +
                             "Reason: %s "+
                             "A transaction %s has pending verification "+
                             "Your OTP is %s, valid for 5 minutes "+
