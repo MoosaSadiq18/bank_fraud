@@ -14,7 +14,7 @@ spring:
         - id: account-service
           url: http://localhost:8081
           predicates:
-            - path=/api/v1/accounts/**
+            - Path=/api/v1/accounts/**
           filters:
             - name: RequestRateLimiter
               args:
@@ -25,7 +25,7 @@ spring:
         - id: transaction-service
           url: http://localhost:8082
           predicates:
-            - path=/api/v1/transactions/**
+            - Path=/api/v1/transactions/**
           filters:
             - name: RequestRateLimiter
               args:
@@ -36,7 +36,7 @@ spring:
         - id: payment-service
           url: http://localhost:8083
           predicates:
-            - path=/api/v1/payments/**
+            - Path=/api/v1/payments/**
           filters:
             - name: RequestRateLimiter
               args:
