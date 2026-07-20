@@ -32,7 +32,8 @@ public class NotificationService {
                             "Reason: %s "+
                             "A transaction %s has pending verification "+
                             "Your OTP is %s, valid for 5 minutes "+
-                            "If this was not you, ignore this message"
+                            "If this was not you, ignore this message",
+                            accountNumber,reason,otp
                     )
             );
         }

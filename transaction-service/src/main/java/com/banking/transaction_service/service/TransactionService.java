@@ -117,6 +117,7 @@ public class TransactionService {
 
         log.info("OTP verified, completing the transaction: {}",transactionId);
         completeTransaction(transaction);
+        return mapToResponse(transaction);
     }
 
     public void completeTransaction(Transaction transaction){

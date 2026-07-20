@@ -18,16 +18,16 @@ spring:
     bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.sprinframework.kafka.support.serializer.JsonSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
 
 server:
   port: 8083
 
-razorpay:
+razor:
   key-id: rzp-xxxxxx
-  key-secret:
-  webhook-secret:
+  key-secret: dummmy
+  webhook-secret: dummy
 
 management:
   endpoints:

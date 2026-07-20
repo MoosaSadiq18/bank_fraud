@@ -78,7 +78,7 @@ public class TransactionEventConsumer {
     public void consumeCleanFraudCheck(@Payload Map<String,Object> payload){
         try {
             String transactionId = (String) payload.get("transactionId");
-            transactionService.processCleanResult(transactionId)
+            transactionService.processCleanResult(transactionId);
         }
         catch(Exception e){
             log.error("Error clean transaction completion: {}",e.getMessage());

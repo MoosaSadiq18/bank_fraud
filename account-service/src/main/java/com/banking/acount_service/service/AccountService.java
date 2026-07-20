@@ -19,7 +19,7 @@ import java.security.SecureRandom;
 public class AccountService {
 
     private final AccountRepository accountRepository;
-    private static SecureRandom secureRandom;
+    private static SecureRandom secureRandom = new SecureRandom();
 
     public AccountResponse createAccount(CreateAccountRequest request){
         log.info("Creating account for: {}", request.getEmail());
@@ -34,6 +34,7 @@ public class AccountService {
         account.setAccountType(request.getAccountType());
         account.setBalance(request.getInitialDeposit());
         account.setAccountNumber(generateAccountNumber());
+        account.setAccountStatus(AccountStatus.ACTIVE);
         account.setDailyTransactionLimit(
                 request.getAccountType() == AccountType.CURRENT
                 ? new BigDecimal("100000")

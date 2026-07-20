@@ -11,6 +11,6 @@ import java.math.BigDecimal;
 @FeignClient(name = "account-service", url = "${account.service.url}")
 public interface AccountServiceClient {
 
-    @GetMapping("/api/v1/accounts/{accountId}/getBalance")
+    @GetMapping("/api/v1/accounts/{accountNumber}/getBalance")
     BigDecimal getBalance(@PathVariable String accountNumber);
 }
